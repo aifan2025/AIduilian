@@ -12,25 +12,31 @@ import { AuthContext } from './contexts/authContext';
 const App: React.FC = () => {
   // 完整的认证上下文值
   const authContextValue = {
-    isAuthenticated: localStorage.getItem('adminLoggedIn') === 'true',
+    isAuthenticated: typeof window !== 'undefined' ? localStorage.getItem('adminLoggedIn') === 'true' : false,
     setIsAuthenticated: (value: boolean) => {
-      if (value) {
-        localStorage.setItem('adminLoggedIn', 'true');
-      } else {
+      if (typeof window !== 'undefined') {
+        if (value) {
+          localStorage.setItem('adminLoggedIn', 'true');
+        } else {
+          localStorage.removeItem('adminLoggedIn');
+          localStorage.removeItem('currentAdminUser');
+        }
+      }
+    },
+    logout: () => {
+      if (typeof window !== 'undefined') {
         localStorage.removeItem('adminLoggedIn');
         localStorage.removeItem('currentAdminUser');
       }
     },
-    logout: () => {
-      localStorage.removeItem('adminLoggedIn');
-      localStorage.removeItem('currentAdminUser');
-    },
-    currentUser: JSON.parse(localStorage.getItem('currentAdminUser') || 'null'),
+    currentUser: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('currentAdminUser') || 'null') : null,
     setCurrentUser: (user: any) => {
-      if (user) {
-        localStorage.setItem('currentAdminUser', JSON.stringify(user));
-      } else {
-        localStorage.removeItem('currentAdminUser');
+      if (typeof window !== 'undefined') {
+        if (user) {
+          localStorage.setItem('currentAdminUser', JSON.stringify(user));
+        } else {
+          localStorage.removeItem('currentAdminUser');
+        }
       }
     }
   };

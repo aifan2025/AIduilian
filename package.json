@@ -6,29 +6,32 @@
   "scripts": {
     "dev:client": "vite --host --port 3000",
     "dev": "pnpm dev:client",
-    "build:client": "vite build --outDir dist/static",
-    "build": "rm -rf dist && pnpm build:client && cp package.json dist && touch dist/build.flag"
+    "build": "vite build",
+    "build:cloudflare": "vite build"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "framer-motion": "^12.9.2",
+    "framer-motion": "^12.10.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.3.0",
-    "recharts": "^2.15.1",
-    "sonner": "^2.0.2",
-    "tailwind-merge": "^3.0.2",
-    "zod": "^3.24.2"
+    "react-router-dom": "^7.5.3",
+    "recharts": "^2.15.3",
+    "sonner": "^2.0.3",
+    "tailwind-merge": "^3.2.0",
+    "zod": "^3.24.4"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@types/react": "^18.3.21",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0",
+    "typescript": "~5.7.3",
+    "vite": "^6.3.5",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }

@@ -1,5 +1,5 @@
 // 模拟数据
-import { SizeOption, StyleOption } from './types';
+import { SizeOption, StyleOption, PaymentMethodConfig } from './types';
 
 // 对联大小选项
 export const sizeOptions: SizeOption[] = [
