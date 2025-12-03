@@ -63,7 +63,7 @@ Cloudflare Pages 是一个 JAMstack 平台，支持直接从 Git 仓库部署静
    - **Build command**: `npm run build`
    - **Build output directory**: `dist`
    - **Root directory**: 保持为空（默认为根目录）
-4. **Environment variables (advanced)**: 您可以添加环境变量（如果需要的话）
+4. **Environment variables (advanced)**: 保持默认，无需设置
 
 配置完成后，点击 **Save and Deploy** 按钮开始部署过程。
 
@@ -93,7 +93,7 @@ Cloudflare Pages 会开始构建和部署您的项目。这通常需要几分钟
 - 检查构建日志，查看具体的错误信息
 - 确保您的 `package.json` 中有正确的 `build` 脚本
 - 确保您的项目能够在本地成功构建
-- 如果遇到 `Missing entry-point to Worker script or to assets directory` 错误，请确保使用了正确的部署方式，Cloudflare Pages 会自动部署静态内容，不需要额外的 `wrangler deploy` 命令
+- 如果遇到 `Missing entry-point to Worker script or to assets directory` 错误，这是因为使用了不适合静态网站的 `wrangler deploy` 命令。Cloudflare Pages会自动部署静态内容，不需要额外的部署命令，只需确保构建配置正确。
 
 ### 2. 网站显示空白或资源加载失败
 

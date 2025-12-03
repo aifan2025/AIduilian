@@ -6,8 +6,7 @@
   "scripts": {
     "dev:client": "vite --host --port 3000",
     "dev": "pnpm dev:client",
-    "build": "vite build",
-    "build:cloudflare": "vite build"
+    "build": "vite build"
   },
   "engines": {
     "node": ">=18.0.0"
